@@ -209,12 +209,11 @@ def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
 
 
 for i, frame in tqdm(enumerate(valid_frames)):
-
-    if True:
-        cameras = [1, 2, 5]
-        n_cameras = len(cameras)
-    else:
-        cameras = range(n_cameras)
+    # if True:
+    #     cameras = [1, 2, 5]
+    #     n_cameras = len(cameras)
+    # else:
+    cameras = range(n_cameras)
 
     fig = plt.figure(figsize=(16, 12))
     H = 2 if n_cameras < 8 else 3
@@ -224,7 +223,6 @@ for i, frame in tqdm(enumerate(valid_frames)):
     tracks_on_frame = tracks_by_frame[frame]
 
     for camnbr, cid in enumerate(cameras):
-
         camera_img_dir = join(vid_dir, 'camera%02d' % cid)
         # img_file = join(camera_img_dir, 'frame%09d.png' % frame)
         img_file = join(camera_img_dir, ('frame%09d.' % frame) + img_file_type)

@@ -12,21 +12,21 @@ import numpy as np
 from tqdm import tqdm
 import json
 
-root = "/mnt/cephfs/datasets"
+user = ""
+root = f"/home/{user}/workspace/Datasets/mct"
 assert isdir(root)
 
 # ~~~~~ Campus ~~~~~
 get = campus.get
-output_dir = './../output/campus'
-data_root = join(root, 'campus')
+data_root = root
+output_dir = join(root, 'CampusSeq1_mv3dpose')
 scale_to_mm = 1000
 valid_frames = list(range(350, 470)) + list(range(650, 750))
 
-# ~~~~~ SHELF ~~~~~
+# # ~~~~~ SHELF ~~~~~
 # get = shelf.get
 # valid_frames = list(range(300, 600))
-# output_dir = './../output/shelf'
-# # data_root = join(root, 'pak')
+# output_dir = join(root, 'Shelf_mv3dpose')
 # data_root = root
 # scale_to_mm = 1000
 

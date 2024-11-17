@@ -41,6 +41,8 @@ git clone --recursive https://github.com/jutanke/mv3dpose.git
 
 ## Usage
 
+Please check `preprocessing/README.md` that is used to process some common datasets such as `Shelf` and `Campus`.
+
 Your dataset must reside in a pre-defined folder structure:
 
 * dataset
@@ -111,8 +113,28 @@ The variable __scale_to_mm__ is needed as we operate in [mm] but calibrations mi
 
 ### Run the system
 
+For the `Campus` dataset, after preprocessing, the directory structure
+
 ```bash
-./mvpose.sh /path/to/your/dataset
+├── cameras
+├── dataset.json
+├── gt
+├── poses
+├── videos
+```
+
+```bash
+# extract pose
+$ export DATA_ROOT="/home/$USER/workspace/Datasets/mct"
+$ ./extract_pose.sh $DATA_ROOT/CampusSeq1_mv3dpose
+
+# 3d tracking
+$ export DATA_ROOT="/home/$USER/workspace/Datasets/mct"
+$ ./mvpose.sh $DATA_ROOT/CampusSeq1_mv3dpose
+$ cd /home/user/mv3dpose/mv3dpose
+$ python mvpose.py
+# viz
+$ python visualize.py 
 ```
 
 The resulting tracks will be in your dataset folder under __tracks3d__, each track represents a single person. 

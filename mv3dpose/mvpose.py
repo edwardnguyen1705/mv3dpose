@@ -202,4 +202,3 @@ print('\n[serialize 3d tracks]')
 for tid, track in tqdm(enumerate(tracks)):
     fname = join(output_dir, 'track' + str(tid) + '.json')
     track.to_file(fname)
-
